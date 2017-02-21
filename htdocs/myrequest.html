@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Welcome To PPCMS</title>
+		<meta charset="utf-8">
+	        <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+		<link rel="stylesheet" href="./css/bootstrap.css" type="text/css" rel="stylesheet">
+	        <style>                 
+                .zndex {        
+                        position:absolute;                      
+                        z-index:100;    
+                        }               
+                </style> 		
+	</head>
+	<body>
+		<div class="container">
+			<div id="menu-title">
+				<h1 class="text-center">Welcome to PPCMS</h1>
+				<!--<h4 class="text-center">sessionID</h4>-->
+				<div class="pull-right ">
+				<span class="h6" id="hellot">Welcome:</span>
+				<span class="h6 username" id="user"></span>	
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			<hr/>
+			<nav class="navbar navbar-default" role="navigation">
+				 <ul class="nav navbar-nav container">
+					<li class="col-md-3"><a class="text-center" href="index.html">New Request</a></li>
+					<li class="active col-md-3"><a class="text-center" href="myrequest.html">My Request</a></li>
+					<li class="col-md-3"><a class="text-center" href="myapprovement.html">My Approvement</a></li>
+					<li class="col-md-3"><a class="text-center" href="query.html">Query</a></li>
+				 </ul>
+			</nav>
+			<div class="text-center h3">My &nbsp; Request</div>
+                    	<div id="loading" class="zndex" style="display:none;">
+                                <img src='./images/loading.gif' width="17" height="17" />
+                        </div>
+			<div style="z-index:-1;" >
+				<table  id="mytable" class="table table-bordered text-center table-hover" style="table-layout:fixed;">
+  <colgroup>                    
+    <col></col>                         
+    <col class="col-md-2 col-md" ></col>
+    <col></col>                                         
+    <col class="col-md-2 col-md" ></col>
+    <col></col>                                 
+    <col class="col-md-2 col-md" ></col>                
+    <col></col>                                         
+  </colgroup> 
+						<tr>
+							<th class="text-center">ECN</th>
+							<th class="text-center">Device</th>
+							<th class="text-center">Time</th>
+							<th class="text-center">Platform</th>
+							<th class="text-center">Status</th>
+							<th class="text-center">Approver</th>
+							<th class="text-center">Category</th>
+                                                        <th class="text-center">Operate</th>
+						</tr>
+				</table>
+			</div>
+                        <div class="modal fade" id="mystatus" >
+                                <div class="modal-dialog">
+                                        <div class="modal-content">
+                                                <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                                        <h4 class="modal-title" id="modal-status">Status:<span></span></h4>
+                                                </div>  
+                                                <div class="modal-body">
+                                                        <h5 id="modal-approver">Approver:<span></span></h5>
+                                                        <h5 id="modal-rejectter">Rejecter:<span></span></h5>
+      							<h5 id="modal-comm">Comment:<span></span></h5>
+                         				<h5 id="modal-time">Endtime:<span></span></h5>
+                                                </div>  
+                                                <div class="modal-footer">
+                                                        <button type="button" class="btn btn-warning" data-dismiss="modal">close</button>
+                                                </div>  
+                                        </div>  
+                                </div>  
+                        </div>
+			<div class="modal fade" id="mymodal" style="display: none;">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+							<h4 class="modal-title" id="modal-name">name:<span></span></h4>
+						</div>
+						<div class="modal-body">
+							<h5 id="modal-phone">phone:<span></span></h5>
+							<h5 id="modal-part">Part:<span></span></h5>
+							<h5 id="modal-mail">Mail:<span></span></h5>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-warning" data-dismiss="modal">close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+<div class="modal fade" id="mycancel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" 
+               data-dismiss="modal" aria-hidden="true">
+                  &times;
+            </button>
+            <h4 class="modal-title" id="myModalLabel">
+                Do you want cancel the request?
+            </h4>
+         </div>
+	  <div class="modal-body">
+                <input type="text" name="comm" value="" id="comm" class="form-control" placeholder="Input Cancel Comment">
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-default" 
+               data-dismiss="modal">Cancel
+            </button>
+            <button type="button" id="Confirm" class="btn btn-primary">
+               Confirm
+            </button>
+         </div>
+      </div><!-- /.modal-content -->
+</div><!-- /.modal -->
+    </div>
+
+		<script src="./js/jquery-1.11.3.js"></script>
+		<script src="./js/bootstrap.js"></script>
+		<script src="./js/myrequest.js"></script>	
+	</body>
+</html>

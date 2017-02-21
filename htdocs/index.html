@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Welcome To PPCMS</title>
+		<meta charset="utf-8">
+	        <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+		<link rel="stylesheet" href="./css/bootstrap.css" type="text/css" rel="stylesheet">
+		
+	</head>
+	<body>
+		<div class="container">
+			<div id="menu-title">
+				<h1 class="text-center">Welcome to PPCMS</h1>
+				<!--<h4 class="text-center">sessionID</h4>-->
+				<div class="pull-right ">
+					<span class="h6" id="hellot">Welcome:</span>
+					<span class="h6 username" id="user"></span>
+<!--					<span class="caret"></span>
+-->					
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			<hr/>
+			<nav class="navbar navbar-default" role="navigation">
+				 <ul class="nav navbar-nav container">
+					<li class="active col-md-3"><a class="text-center" href="index.html">New Request</a></li>
+					<li class="col-md-3"><a class="text-center" href="myrequest.html">My Request</a></li>
+					<li class="col-md-3"><a class="text-center" href="myapprovement.html">My Approvement</a></li>
+					<li class="col-md-3"><a class="text-center" href="query.html">Query</a></li>
+				 </ul>
+			</nav>
+			<div id="new-request">
+				<div class="text-center h3">Create &nbsp; Request</div>
+				<form name="form1" id="form1">
+				<div class="input-group col-md-8 col-md-offset-2 ">
+					<span class="input-group-addon">Category:</span>
+					<select name="category" id="category" class="form-control ">
+						<option value="1">New Part Release</option>
+						<option value="2">PROD Change</option>
+						</select>
+				</div>
+				  <div class="input-group col-md-4 col-md-offset-2  pull-left">
+                                        <span class="input-group-addon">Requester:</span>
+                                        <input type="text" name="username" value="" id="username" readonly="readonly" class="form-control" >
+                                </div>
+				<div class="input-group col-md-4  pull-left">
+					<span class="input-group-addon">Ecn:</span>
+					<input type="text" name="ecn" maxlength="10" value="" id="ecn" class="form-control" placeholder="">
+				</div>	
+				<div class="input-group col-md-4 col-md-offset-2 pull-left">
+					<span class="input-group-addon">Platform:</span>
+					<select id="platform" name="platform" class="form-control  ">
+					<option value="J750">J750</option>
+					<option value="MST">MST</option>
+					<option value="IFLEX">IFLEX</option>
+					<option value="CATALYST">CATALYST</option>
+					<option value="T3326">T3326</option>
+					<option value="J971">J971</option>
+					<option value="LTX">LTX</option>
+					<option value="A585">A585</option>
+					<option value="93K">93K</option>
+					<option value="LTK">LTK</option>
+					</select>
+				</div>
+					
+				<!--
+				<div class="input-group col-md-8 col-md-offset-2">
+					<span class="input-group-addon">Change Request Detail:</span>
+					<textarea class="form-control"></textarea>
+				</div>
+				-->
+				<div class="input-group col-md-4 col-md pull-left ">
+					<span class="input-group-addon">Device:</span>
+					<input type="text" id="device" name="device" value="" placeholder="List All of The Affect Devices" class="form-control">
+				</div>
+				
+				
+				<div class="input-group col-md-4 col-md-offset-2 pull-left">
+					<span class="input-group-addon">Approver:</span>
+					<input id="approver" type="text" name="approver" value="" placeholder="  Split with , or :" class="form-control">
+				</div>
+				<div class="input-group col-md-4 col-md pull-left">
+					<span class="input-group-addon">CarbonCopy:</span>
+				<input id="carboncopy" type="text" name="carboncopy" value="" placeholder="  Split with , or :" class="form-control">
+				</div>
+				<div class="input-group text-center col-md-8 col-md-offset-2">
+					<span class="input-group-addon">Upload:</span>
+					<input class="form-control" id="upload" name="upload" type="file" >
+				</div>
+				</form>
+		<!--		
+		-->
+			</div>
+			<div id="request-form" class="text-center">
+				<input type="button" id="submit" class="btn btn-primary" value="submit"/>
+				<button type="button" id="reset" class="btn btn-success">reset</button>
+			</div>
+		</div>
+		<script src="./js/jquery-1.11.3.js"></script>
+        <script src="./js/index.js"></script>
+	
+	</body>
+</html>

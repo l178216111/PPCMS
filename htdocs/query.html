@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Welcome To PPCMS</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+		<link rel="stylesheet" href="./css/bootstrap.css" type="text/css" rel="stylesheet">
+		<link rel="stylesheet" href="./dist/ladda-themeless.min.css">
+		<script src="./dist/spin.min.js"></script>
+		<script src="./dist/ladda.min.js"></script>
+		<style>
+		.zndex {
+			position:absolute; 
+			z-index:100;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div id="menu-title">
+				<h1 class="text-center">Welcome to PPCMS</h1>
+				<!--<h4 class="text-center">sessionID</h4>-->
+				<div class="pull-right ">
+					<span class="h6" id="hellot">Welcome:</span>
+					<span class="h6 username" id="user"></span>
+<!--					<span class="caret"></span>
+-->					
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			<hr/>
+			<nav class="navbar navbar-default" role="navigation">
+				 <ul class="nav navbar-nav container">
+					<li class="col-md-3"><a class="text-center" href="index.html">New Request</a></li>
+					<li class="col-md-3"><a class="text-center" href="myrequest.html">My Request</a></li>
+					<li class="col-md-3"><a class="text-center" href="myapprovement.html">My Approvement</a></li>
+					<li class="active col-md-3"><a class="text-center" href="query.html">Query</a></li>
+				 </ul>
+			</nav>
+			<div id="query">
+				<form name="form1" id="form1">
+				<div class="input-group col-md-4 col-md pull-left">
+					<span class="input-group-addon">Category:</span>
+					<select name="category" id="category" class="form-control ">
+						<option value="0">All</option>
+						<option value="1">New Part Release</option>
+						<option value="2">PROD Change</option>
+					</select>
+				</div>
+				<div class="input-group col-md-4 col-md pull-left">
+					<span class="input-group-addon">Platform:</span>
+					<select id="platform" name="platform" class="form-control  ">
+					<option value="all">All</option>
+					<option value="J750">J750</option>
+					<option value="MST">MST</option>
+					<option value="IFLEX">IFLEX</option>
+					<option value="CATALYST">CATALYST</option>
+					<option value="T3326">T3326</option>
+					<option value="J971">J971</option>
+					<option value="LTX">LTX</option>
+					<option value="A585">A585</option>
+					<option value="93K">93K</option>
+					<option value="LTK">LTK</option>
+					</select>
+				</div>
+				<div class="input-group col-md-4 col-md pull-left">
+					<span class="input-group-addon">Status:</span>
+					<select id="pstatus" name="pstatus" class="form-control  ">
+					<option value="all">All</option>
+					<option value="Approving">Approving</option>
+					<option value="Approved">Approved</option>
+					<option value="Rejected">Rejected</option>
+					<option value="Canceled">Canceled</option>
+					</select>
+				</div>
+				<div class="input-group col-md-3 col-md pull-left">
+					<span class="input-group-addon">Device:</span>
+					<input type="text" id="device" name="device" class="form-control">
+				</div>
+					<div class="input-group col-md-3 col-md pull-left">
+					<span class="input-group-addon">Approver:</span>
+					<input id="approver" type="text" name="approver" value="" class="form-control">
+				</div>
+					<div class="input-group col-md-3 pull-left">
+					<span class="input-group-addon">Requester:</span>
+					<input id="requester" type="text" name="requester" value=""  class="form-control">
+				</div>
+				<div class="input-group col-md-3 col-md pull-left">
+					  <span class="input-group-addon">Ecn:</span>
+					<input type="text" name="ecn"value="" id="ecn" class="form-control" placeholder="">
+				</div>
+				</form>
+			<br>
+			<div id="request-form" class="text-center" >
+				<button type="button" id="submt" class="ladda-button btn btn-primary" data-style="zoom-in">
+					<span class="ladda-label">Submit</span>
+				</button>
+				<button type="button" id="reset" class="btn btn-success">
+					<span class="ladda-label">Reset</span>
+				</button>
+			</div>
+			</div>
+			<div id="loading" class="zndex" style="display:none;">
+				<img src='./images/loading.gif' width="17" height="17" />
+			</div>
+                        <div class="modal fade" id="mystatus" >
+                                <div class="modal-dialog">
+                                        <div class="modal-content">
+                                                <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                                        <h4 class="modal-title" id="modal-status">Status:<span></span></h4>
+                                                </div>  
+                                                <div class="modal-body">
+                                                        <h5 id="modal-approver">Approver:<span></span></h5>
+                                                        <h5 id="modal-rejectter">Rejecter:<span></span></h5>
+							<h5 id="modal-comm">Comment:<span></span></h5>
+							<h5 id="modal-time">Endtime:<span></span></h5>
+                                                </div>  
+                                                <div class="modal-footer">
+                                                        <button type="button" class="btn btn-warning" data-dismiss="modal">close</button>
+                                                </div>  
+                                        </div>  
+                                </div>  
+                        </div>
+			<div class="modal fade" id="mymodal" >
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+							<h4 class="modal-title" id="modal-name">name:<span></span></h4>
+						</div>
+						<div class="modal-body">
+							<h5 id="modal-phone">phone:<span></span></h5>
+							<h5 id="modal-part">Part:<span></span></h5>
+							<h5 id="modal-mail">Mail:<span></span></h5>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-warning" data-dismiss="modal">close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div>
+				<table  id="mytable" class="table table-bordered text-center table-hover" style="table-layout:fixed;">
+  <colgroup>
+    <col></col>
+    <col class="col-md-2 col-md" ></col>
+    <col></col>
+    <col class="col-md-2 col-md" ></col>
+    <col></col>
+    <col></col>
+    <col class="col-md-2 col-md" ></col>
+    <col></col>
+  </colgroup>
+						<tr>
+							<th class="text-center">ECN</th>
+							<th class="text-center">Device</th>
+							<th class="text-center">Time</th>
+							<th class="text-center">Platform</th>
+							<th class="text-center">Requester</th>
+							<th class="text-center">Status</th>
+							<th class="text-center">Approver</th>
+							<th class="text-center">Category</th>
+						</tr>
+				</table>
+			</div>
+		</div>
+		<script src="./js/jquery-1.11.3.js"></script>
+		<script src="./js/bootstrap.js"></script>	
+		<script src="./js/query.js"></script>
+	</body>
+</html>
